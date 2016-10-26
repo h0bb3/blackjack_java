@@ -13,7 +13,11 @@ public class SimpleView implements IView
         public int GetInput()
         {
           try {
-            return System.in.read();
+            int c = System.in.read();
+            while (c == '\r' || c =='\n') {
+              c = System.in.read();
+            }
+            return c;
           } catch (java.io.IOException e) {
             System.out.println("" + e);
             return 0;
