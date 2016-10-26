@@ -7,15 +7,19 @@ public class SwedishView implements IView
          
             for(int i = 0; i < 50; i++) {System.out.print("\n");};
 
-            System.out.println("Hej Black Jack Världen");
+            System.out.println("Hej Black Jack VÃ¤rlden");
             System.out.println("----------------------");
-            System.out.println("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
+            System.out.println("Skriv 'p' fÃ¶r att Spela, 'h' fÃ¶r nytt kort, 's' fÃ¶r att stanna 'q' fÃ¶r att avsluta\n");
         }
         
         public int GetInput()
         {
           try {
-            return System.in.read();
+            int c = System.in.read();
+            while (c == '\r' || c =='\n') {
+              c = System.in.read();
+            }
+            return c;
           } catch (java.io.IOException e) {
             System.out.println("" + e);
             return 0;
@@ -31,9 +35,9 @@ public class SwedishView implements IView
             else
             {
                 String colors[] = 
-                    { "Hjärter", "Spader", "Ruter", "Klöver" };
+                    { "HjÃ¤rter", "Spader", "Ruter", "KlÃ¶ver" };
                 String values[] =  
-                    { "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio", "knekt", "dam", "kung", "ess" };
+                    { "tvÃ¥", "tre", "fyra", "fem", "sex", "sju", "Ã¥tta", "nio", "tio", "knekt", "dam", "kung", "ess" };
                 System.out.println("" + colors[a_card.GetColor().ordinal()] + " " + values[a_card.GetValue().ordinal()]);
             }
         }
@@ -65,7 +69,7 @@ public class SwedishView implements IView
             {
                 DisplayCard(c);
             }
-            System.out.println("Poäng: " + a_score);
+            System.out.println("PoÃ¤ng: " + a_score);
             System.out.println("");
         }
     }
