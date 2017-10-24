@@ -7,7 +7,7 @@ public class Player {
 
   private List<Card> m_hand;
   protected final int g_maxScore = 21;
-
+  protected final int g_17Score = 17;
   public Player()
   {
   
