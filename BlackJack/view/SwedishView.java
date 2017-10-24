@@ -43,11 +43,11 @@ public class SwedishView implements IView
         }
         public void displayPlayerHand(Iterable<BlackJack.model.Card> a_hand, int a_score)
         {
-            DisplayHand("Spelare", a_hand, a_score);
+            displayHand("Spelare", a_hand, a_score);
         }
         public void displayDealerHand(Iterable<BlackJack.model.Card> a_hand, int a_score)
         {
-            DisplayHand("Croupier", a_hand, a_score);
+            displayHand("Croupier", a_hand, a_score);
         }
         public void displayGameOver(boolean a_dealerIsWinner)
         {
@@ -62,7 +62,7 @@ public class SwedishView implements IView
             }
         }
 
-        private void DisplayHand(String a_name, Iterable<BlackJack.model.Card> a_hand, int a_score)
+        private void displayHand(String a_name, Iterable<BlackJack.model.Card> a_hand, int a_score)
         {
             System.out.println(a_name + " Har: " + a_score);
             for(BlackJack.model.Card c : a_hand)
