@@ -31,6 +31,10 @@ public class Game {
   {
     return m_dealer.Hit(m_player);
   }
+  public boolean Soft17(){
+	  
+	  return m_dealer.Soft17(m_player);
+  }
   
   public boolean Stand() { return m_dealer.Stand(); }
   
