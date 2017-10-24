@@ -15,30 +15,30 @@ public class Player {
     System.out.println("Hello List World");
   }
   
-  public void DealCard(Card a_addToHand)
+  public void dealCard(Card a_addToHand)
   {
     m_hand.add(a_addToHand);
   }
   
-  public Iterable<Card> GetHand()
+  public Iterable<Card> getHand()
   {
     return m_hand;
   }
   
-  public void ClearHand()
+  public void clearHand()
   {
     m_hand.clear();
   }
   
-  public void ShowHand()
+  public void showHand()
   {
     for(Card c : m_hand)
     {
-      c.Show(true);
+      c.show(true);
     }
   }
   
-  public int CalcScore()
+  public int calcScore()
   {
     // the number of scores is dependant on the number of scorable values
     // as it seems there is no way to do this check at compile time in java ?!
@@ -51,18 +51,18 @@ public class Player {
     
     int score = 0;
 
-    for(Card c : GetHand()) {
-        if (c.GetValue() != Card.Value.Hidden)
+    for(Card c : getHand()) {
+        if (c.getValue() != Card.Value.Hidden)
         {
-            score += cardScores[c.GetValue().ordinal()];
+            score += cardScores[c.getValue().ordinal()];
         }
     }
 
     if (score > g_maxScore)
     {
-        for(Card c : GetHand())
+        for(Card c : getHand())
         {
-            if (c.GetValue() == Card.Value.Ace && score > g_maxScore)
+            if (c.getValue() == Card.Value.Ace && score > g_maxScore)
             {
                 score -= 10;
             }

@@ -11,41 +11,41 @@ public class Game {
     }
 
 
-    public boolean IsGameOver() {
-        return m_dealer.IsGameOver();
+    public boolean isGameOver() {
+        return m_dealer.isGameOver();
     }
 
-    public boolean IsDealerWinner() {
-        return m_dealer.IsDealerWinner(m_player);
+    public boolean isDealerWinner() {
+        return m_dealer.isdealerwinner(m_player);
     }
 
-    public boolean NewGame() {
-        return m_dealer.NewGame(m_player);
+    public boolean newGame() {
+        return m_dealer.newGame(m_player);
     }
 
-    public boolean Hit() {
-        return m_dealer.Hit(m_player);
+    public boolean hit() {
+        return m_dealer.hit(m_player);
     }
 
-    public boolean Stand()
+    public boolean stand()
     {
-        return m_dealer.Stand();
+        return m_dealer.stand();
     }
 
-    public Iterable<Card> GetDealerHand() {
-        return m_dealer.GetHand();
+    public Iterable<Card> getDealerHand() {
+        return m_dealer.getHand();
     }
 
-    public Iterable<Card> GetPlayerHand() {
-        return m_player.GetHand();
+    public Iterable<Card> getPlayerHand() {
+        return m_player.getHand();
     }
 
-    public int GetDealerScore() {
-        return m_dealer.CalcScore();
+    public int getDealerScore() {
+        return m_dealer.calcScore();
     }
 
-    public int GetPlayerScore() {
-        return m_player.CalcScore();
+    public int getPlayerScore() {
+        return m_player.calcScore();
     }
 
 
