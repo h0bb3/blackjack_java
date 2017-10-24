@@ -29,6 +29,8 @@ public class Dealer extends Player {
     }
     return false;
   }
+  
+  
 
   public boolean Hit(Player a_player) {
     if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver()) {
@@ -57,5 +59,17 @@ public class Dealer extends Player {
     }
     return false;
   }
+  
+  public boolean Stand() {
+	    if (m_deck != null) {
+	      ShowHand();
+	}
+	    while(m_hitRule.DoHit(this)) {
+	        Hit(this);
+	      }
+	      return false;
+	  }
+  
+  
   
 }
