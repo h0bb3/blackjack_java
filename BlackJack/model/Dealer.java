@@ -42,7 +42,7 @@ public class Dealer extends Player {
         return false;
     }
 
-    public boolean isdealerwinner(Player a_player) {
+    public boolean isDealerWinner(Player a_player) {
         if (a_player.calcScore() > g_maxScore) {
             return true;
         } else if (calcScore() > g_maxScore) {
@@ -52,7 +52,7 @@ public class Dealer extends Player {
     }
 
     public boolean isGameOver() {
-        if (m_deck != null && m_hitRule.doHit(this) != true) {
+        if (m_deck != null && !m_hitRule.doHit(this)) {
             return true;
         }
         return false;

@@ -16,7 +16,7 @@ public class Game {
     }
 
     public boolean isDealerWinner() {
-        return m_dealer.isdealerwinner(m_player);
+        return m_dealer.isDealerWinner(m_player);
     }
 
     public boolean newGame() {

@@ -7,7 +7,7 @@ public class DutchView implements IView {
     public void displayWelcomeMessage() {
         System.out.println("Hallo, BlackJack-wereld!");
         System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-/-");
-        System.out.println("Typ 'p' om te spelen, 'h' voor hit, 's' voor stand en 'q' om te stoppen.");
+        System.out.println("Typ 'n' voor een nieuw spel, 'h' voor hit, 's' voor stand en 'a' om af te sluiten.");
     }
 
     @Override
@@ -61,10 +61,10 @@ public class DutchView implements IView {
                     c = System.in.read();
                 }
                 switch (c) {
-                    case 'p': return GameInput.PLAY;
+                    case 'n': return GameInput.PLAY;
                     case 'h': return GameInput.HIT;
                     case 's': return GameInput.STAND;
-                    case 'q': return GameInput.QUIT;
+                    case 'a': return GameInput.QUIT;
                 }
             } catch (java.io.IOException e) {
                 System.out.println("" + e);
