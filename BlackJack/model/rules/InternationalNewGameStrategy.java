@@ -8,20 +8,10 @@ import BlackJack.model.Card;
 class InternationalNewGameStrategy implements INewGameStrategy {
 
   public boolean newGame(Deck a_deck, Dealer a_dealer, Player a_player) {
-    Card c;
-  
-    c = a_deck.getCard();
-    c.show(true);
-    a_player.addCard(c);
-  
-    c = a_deck.getCard();
-    c.show(true);
-    a_dealer.addCard(c);
-  
-    c = a_deck.getCard();
-    c.show(true);
-    a_player.addCard(c);
-  
+    a_dealer.dealCard(a_player,a_deck.getCard(),true);
+    a_dealer.dealCard(a_dealer,a_deck.getCard(),true);
+    a_dealer.dealCard(a_player,a_deck.getCard(),true);
+
     return true;
   }
 }
