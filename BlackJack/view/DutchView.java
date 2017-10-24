@@ -11,22 +11,6 @@ public class DutchView implements IView {
     }
 
     @Override
-    public int getInput() {
-        {
-            try {
-                int c = System.in.read();
-                while (c == '\r' || c =='\n') {
-                    c = System.in.read();
-                }
-                return c;
-            } catch (java.io.IOException e) {
-                System.out.println("" + e);
-                return 0;
-            }
-        }
-    }
-
-    @Override
     public void displayCard(Card a_card) {
         if (a_card.getColor() == BlackJack.model.Card.Color.Hidden)
         {
@@ -66,6 +50,28 @@ public class DutchView implements IView {
                 System.out.println("Jij wint!");
             }
         }
+    }
+
+    @Override
+    public GameInput getInput() {
+        {
+            try {
+                int c = System.in.read();
+                while (c == '\r' || c =='\n') {
+                    c = System.in.read();
+                }
+                switch (c) {
+                    case 'p': return GameInput.PLAY;
+                    case 'h': return GameInput.HIT;
+                    case 's': return GameInput.STAND;
+                    case 'q': return GameInput.QUIT;
+                }
+            } catch (java.io.IOException e) {
+                System.out.println("" + e);
+                return GameInput.NONE;
+            }
+        }
+        return GameInput.NONE;
     }
 
     private void displayHand(String a_name, Iterable<BlackJack.model.Card> a_hand, int a_score)
