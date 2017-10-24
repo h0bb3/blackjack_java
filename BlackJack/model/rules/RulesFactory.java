@@ -9,4 +9,9 @@ public class RulesFactory {
   public INewGameStrategy GetNewGameRule() {
     return new AmericanNewGameStrategy();
   }
+  
+  public IHitStrategy Get17Rule(){
+	  
+	  return new Soft17Strategy();
+  }
 }

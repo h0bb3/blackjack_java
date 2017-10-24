@@ -1,5 +1,10 @@
 package BlackJack.view;
 
+import java.util.EnumSet;
+import java.util.Scanner;
+
+import BlackJack.controller.Choice.Choices;
+
 public class SwedishView implements IView 
     {
         public void DisplayWelcomeMessage()
@@ -12,19 +17,16 @@ public class SwedishView implements IView
             System.out.println("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
         }
         
-        public int GetInput()
-        {
-          try {
-            int c = System.in.read();
-            while (c == '\r' || c =='\n') {
-              c = System.in.read();
+        public Choices GetInput(){
+        	Scanner scan = new Scanner(System.in); 
+                for (Choices choices : EnumSet.allOf(Choices.class)) {
+                   System.out.print(choices.ordinal()+1+". "+choices + "   ");
+                  }
+                System.out.println("");
+       
+                int choice = scan.nextInt(); 
+               return Choices.values()[choice-1];
             }
-            return c;
-          } catch (java.io.IOException e) {
-            System.out.println("" + e);
-            return 0;
-          }
-        }
         
         public void DisplayCard(BlackJack.model.Card a_card)
         {

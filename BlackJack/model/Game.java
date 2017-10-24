@@ -31,12 +31,12 @@ public class Game {
   {
     return m_dealer.Hit(m_player);
   }
-  
-  public boolean Stand()
-  {
-    // TODO: Implement this according to Game_Stand.sequencediagram
-    return true;
+  public boolean Soft17(){
+	  
+	  return m_dealer.Soft17(m_player);
   }
+  
+  public boolean Stand() { return m_dealer.Stand(); }
   
   public Iterable<Card> GetDealerHand()
   {
