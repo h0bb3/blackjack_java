@@ -43,6 +43,21 @@ public class Dealer extends Player {
     }
     return false;
   }
+	
+ //copy of Hit method with difference being that it checks if the soft17 score has been hit instaed of the maxscore
+  public boolean Soft17(Player a_player){
+	
+	  if (m_deck != null && a_player.CalcScore() == g_17Score && !IsGameOver()) {
+		  Card c;
+	      c = m_deck.GetCard();
+	      c.Show(true);
+	      a_player.DealCard(c);
+	      
+	      return true;
+	  }
+	  return false;
+	  
+  }
 
   public boolean IsDealerWinner(Player a_player) {
     if (a_player.CalcScore() > g_maxScore) {
