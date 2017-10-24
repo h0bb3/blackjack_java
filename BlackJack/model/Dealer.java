@@ -14,11 +14,7 @@ public class Dealer extends Player {
         m_newGameRule = a_rulesFactory.getNewGameRule();
         m_hitRule = a_rulesFactory.getHitRule();
         m_gameWinRule = a_rulesFactory.getGameWinRule();
-    
-    /*for(Card c : m_deck.getCards()) {
-      c.show(true);
-      System.out.println("" + c.getValue() + " of " + c.getColor());
-    }    */
+
     }
 
 
@@ -34,11 +30,8 @@ public class Dealer extends Player {
 
     public boolean hit(Player a_player) {
         if (m_deck != null && a_player.calcScore() < g_maxScore && !isGameOver()) {
-            Card c;
-            c = m_deck.getCard();
-            c.show(true);
-            a_player.dealCard(c);
 
+            this.dealCard(a_player,m_deck.getCard(),true);
             return true;
         }
         return false;
@@ -59,13 +52,16 @@ public class Dealer extends Player {
         if (m_deck != null) {
             this.showHand();
             while(m_hitRule.doHit(this)) {
-                Card c;
-                c = m_deck.getCard();
-                c.show(true);
-                dealCard(c);
+
+                this.dealCard(this,m_deck.getCard(),true);
             }
             return true;
         }
         return false;
+    }
+
+    public void dealCard(Player player, Card card, boolean show) {
+        card.show(show);
+        player.addCard(card);
     }
 }

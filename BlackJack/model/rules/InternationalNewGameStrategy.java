@@ -12,15 +12,15 @@ class InternationalNewGameStrategy implements INewGameStrategy {
   
     c = a_deck.getCard();
     c.show(true);
-    a_player.dealCard(c);
+    a_player.addCard(c);
   
     c = a_deck.getCard();
     c.show(true);
-    a_dealer.dealCard(c);
+    a_dealer.addCard(c);
   
     c = a_deck.getCard();
     c.show(true);
-    a_player.dealCard(c);
+    a_player.addCard(c);
   
     return true;
   }

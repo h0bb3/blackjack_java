@@ -3,28 +3,33 @@ package BlackJack.model.rules;
 import BlackJack.model.Deck;
 import BlackJack.model.Dealer;
 import BlackJack.model.Player;
-import BlackJack.model.Card;  
 
 class AmericanNewGameStrategy implements INewGameStrategy {
 
   public boolean newGame(Deck a_deck, Dealer a_dealer, Player a_player) {
-    Card c;
 
-    c = a_deck.getCard();
-    c.show(true);
-    a_player.dealCard(c);
+    a_dealer.dealCard(a_player,a_deck.getCard(),true);
+    a_dealer.dealCard(a_dealer,a_deck.getCard(),true);
 
-    c = a_deck.getCard();
-    c.show(true);
-    a_dealer.dealCard(c);
+    a_dealer.dealCard(a_player,a_deck.getCard(),true);
+    a_dealer.dealCard(a_dealer,a_deck.getCard(),false);
 
-    c = a_deck.getCard();
-    c.show(true);
-    a_player.dealCard(c);
 
-    c = a_deck.getCard();
-    c.show(false);
-    a_dealer.dealCard(c);
+//    c = a_deck.getCard();
+//    c.show(true);
+//    a_player.addCard(c);
+//
+//    c = a_deck.getCard();
+//    c.show(true);
+//    a_dealer.addCard(c);
+//
+//    c = a_deck.getCard();
+//    c.show(true);
+//    a_player.addCard(c);
+//
+//    c = a_deck.getCard();
+//    c.show(false);
+//    a_dealer.addCard(c);
 
     return true;
   }
