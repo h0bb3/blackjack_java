@@ -7,11 +7,13 @@ public class Dealer extends Player {
     private Deck m_deck;
     private INewGameStrategy m_newGameRule;
     private IHitStrategy m_hitRule;
+    private IGameWinStrategy m_gameWinRule;
 
     public Dealer(RulesFactory a_rulesFactory) {
 
         m_newGameRule = a_rulesFactory.getNewGameRule();
         m_hitRule = a_rulesFactory.getHitRule();
+        m_gameWinRule = a_rulesFactory.getGameWinRule();
     
     /*for(Card c : m_deck.getCards()) {
       c.show(true);
@@ -43,12 +45,7 @@ public class Dealer extends Player {
     }
 
     public boolean isDealerWinner(Player a_player) {
-        if (a_player.calcScore() > g_maxScore) {
-            return true;
-        } else if (calcScore() > g_maxScore) {
-            return false;
-        }
-        return calcScore() >= a_player.calcScore();
+        return m_gameWinRule.dealerWins(calcScore(),a_player.calcScore());
     }
 
     public boolean isGameOver() {

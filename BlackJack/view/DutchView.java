@@ -19,9 +19,11 @@ public class DutchView implements IView {
         else
         {
             String colors[] =
-                    { "Harten", "Schoppen", "Ruiten", "Klaver" };
+                    { "\u2764", "\u2660", "\u2666", "\u2663" };
             String values[] =
-                    { "twee", "drie", "vier", "vijf", "zes", "zeven", "acht", "negen", "tien", "boer", "vrouw", "koning", "aas" };
+                    //{ "twee", "drie", "vier", "vijf", "zes", "zeven", "acht", "negen", "tien", "boer", "vrouw", "koning", "aas" };
+                    { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
+
             System.out.println("" + colors[a_card.getColor().ordinal()] + " " + values[a_card.getValue().ordinal()]);
         }
     }

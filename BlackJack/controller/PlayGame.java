@@ -2,6 +2,7 @@ package BlackJack.controller;
 
 import BlackJack.view.IView;
 import BlackJack.model.Game;
+import BlackJack.view.IView.GameInput;
 
 public class PlayGame {
 
@@ -15,13 +16,20 @@ public class PlayGame {
             a_view.displayGameOver(a_game.isDealerWinner());
         }
 
-        IView.GameInput input = a_view.getInput();
+        GameInput input = a_view.getInput();
 
         switch (input) {
             case PLAY: a_game.newGame(); break;
-            case HIT: a_game.hit(); break;
+            case HIT: {
+                a_game.hit();
+                break;
+            }
+
             case STAND: a_game.stand(); break;
         }
-        return input != IView.GameInput.QUIT;
+
+
+
+        return input != GameInput.QUIT;
     }
 }
