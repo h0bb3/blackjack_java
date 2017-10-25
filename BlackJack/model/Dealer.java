@@ -10,11 +10,9 @@ public class Dealer extends Player {
     private IGameWinStrategy m_gameWinRule;
 
     public Dealer(RulesFactory a_rulesFactory) {
-
         m_newGameRule = a_rulesFactory.getNewGameRule();
         m_hitRule = a_rulesFactory.getHitRule();
         m_gameWinRule = a_rulesFactory.getGameWinRule();
-
     }
 
 
@@ -51,6 +49,13 @@ public class Dealer extends Player {
     public boolean stand() {
         if (m_deck != null) {
             this.showHand();
+
+            // to show the hidden dealer card, the observers need to be notified.
+            // the question is: depending on the game strategy,
+            // the dealer card is not always hidden, making this call unnecessary in some cases.
+
+            notifyObservers();
+
             while(m_hitRule.doHit(this)) {
 
                 this.dealCard(this,m_deck.getCard(),true);
@@ -63,5 +68,6 @@ public class Dealer extends Player {
     public void dealCard(Player player, Card card, boolean show) {
         card.show(show);
         player.addCard(card);
+        notifyObservers();
     }
 }

@@ -10,7 +10,7 @@ public class Program {
 
         Game g = new Game();
         IView v = new DutchView(); //new SwedishView();
-        PlayGame ctrl = new PlayGame();
+        PlayGame ctrl = new PlayGame(g,v);
 
         while (ctrl.play(g, v)) ;
     }

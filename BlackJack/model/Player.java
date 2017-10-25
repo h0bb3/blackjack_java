@@ -1,15 +1,32 @@
 package BlackJack.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
 
 public class Player {
 
+    private List<IObserver> observers;
     private List<Card> m_hand;
     protected final int g_maxScore = 21;
 
     public Player() {
-        m_hand = new LinkedList<Card>();
+        m_hand = new LinkedList<>();
+        observers = new ArrayList<>();
+    }
+
+    public void addObserver(IObserver observer) {
+        observers.add(observer);
+    }
+
+    public void notifyObservers() {
+        for (IObserver o: observers) {
+            o.update();
+        }
+    }
+
+    public void removeObserver(IObserver observer){
+        observers.remove(observer);
     }
 
     public void addCard(Card a_addToHand) {

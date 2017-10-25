@@ -5,9 +5,14 @@ import BlackJack.model.Card;
 public class DutchView implements IView {
     @Override
     public void displayWelcomeMessage() {
-        System.out.println("Hallo, BlackJack-wereld!");
+        System.out.println("\nHallo, BlackJack-wereld!");
         System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-/-");
-        System.out.println("Typ 'n' voor een nieuw spel, 'h' voor hit, 's' voor stand en 'a' om af te sluiten.");
+        System.out.println("Typ 'n' voor een nieuw spel, 'a' om af te sluiten");
+    }
+
+    @Override
+    public void displayInstructions() {
+        System.out.println("Typ 'h' voor hit, 's' voor stand en 'a' om dit spel af te breken.");
     }
 
     @Override
@@ -70,10 +75,9 @@ public class DutchView implements IView {
                 }
             } catch (java.io.IOException e) {
                 System.out.println("" + e);
-                return GameInput.NONE;
             }
+            return GameInput.NONE;
         }
-        return GameInput.NONE;
     }
 
     private void displayHand(String a_name, Iterable<BlackJack.model.Card> a_hand, int a_score)

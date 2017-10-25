@@ -48,5 +48,9 @@ public class Game {
         return m_player.calcScore();
     }
 
+    public void registerObserver(IObserver observer) {
+        m_player.addObserver(observer);
+        m_dealer.addObserver(observer);
+    }
 
 }
