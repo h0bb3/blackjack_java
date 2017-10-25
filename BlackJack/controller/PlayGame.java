@@ -21,10 +21,6 @@ public class PlayGame implements IObserver {
 
     public boolean play(Game a_game, IView a_view) {
 
-
-        //a_view.displayDealerHand(a_game.getDealerHand(), a_game.getDealerScore());
-        //a_view.displayPlayerHand(a_game.getPlayerHand(), a_game.getPlayerScore());
-
         if (a_game.isGameOver()) {
             a_view.displayGameOver(a_game.isDealerWinner());
         }
@@ -51,7 +47,7 @@ public class PlayGame implements IObserver {
     @Override
     public void update() {
         try {
-            Thread.sleep(1122);
+            Thread.sleep(1234);
         } catch (InterruptedException i) {
             System.err.println(i.getMessage());
         }
