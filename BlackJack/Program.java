@@ -9,7 +9,8 @@ public class Program {
     public static void main(String[] a_args) {
 
         Game g = new Game();
-        IView v = new DutchView(); //new SwedishView();
+        IView v = //new SimpleView();
+                  new DutchView();
         PlayGame ctrl = new PlayGame(g,v);
 
         while (ctrl.play(g, v)) ;
