@@ -54,7 +54,7 @@ public class Dealer extends Player {
             // the question is: depending on the game strategy,
             // the dealer card is not always hidden, making this call unnecessary in some cases.
 
-            notifyObservers();
+            super.notifyObservers();
 
             while(m_hitRule.doHit(this)) {
 
@@ -68,6 +68,6 @@ public class Dealer extends Player {
     public void dealCard(Player player, Card card, boolean show) {
         card.show(show);
         player.addCard(card);
-        notifyObservers();
+        super.notifyObservers();
     }
 }
