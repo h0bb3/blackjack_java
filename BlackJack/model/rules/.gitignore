@@ -5,3 +5,7 @@
 /InternationalNewGameStrategy.class
 /RulesFactory.class
 /SoftHitStrategy.class
+/SoftRulesFactory.class
+/SoftAmericanRules.class
+/IWinStrategy.class
+/PlayerWinStrategy.class
