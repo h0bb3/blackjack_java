@@ -14,7 +14,7 @@ public class BasicRulesFactory implements IRulesFactory {
 
 
 	public IWinStrategy GetWinStrategy() {
-		return new PlayerWinStrategy()S;
+		return new PlayerWinStrategy();
 	}
 
 }
