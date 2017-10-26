@@ -71,4 +71,14 @@ public class Player {
 
     return score;
   }
+  
+  public int Aces() {
+	  int aces = 0;
+	  for (Card card : this.GetHand()) {
+		  if (card.GetValue().equals("Ace")) {
+			  aces = aces + 1;
+		  }
+	  }
+	  return aces;
+  }
 }
