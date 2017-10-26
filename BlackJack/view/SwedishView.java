@@ -1,10 +1,15 @@
 package BlackJack.view;
 
+import java.util.Scanner;
+
+import BlackJack.controller.InputChoices;
+
+
 public class SwedishView implements IView 
     {
+		private Scanner scan = new Scanner(System.in);
         public void DisplayWelcomeMessage()
         {
-         
             for(int i = 0; i < 50; i++) {System.out.print("\n");};
 
             System.out.println("Hej Black Jack Världen");
@@ -12,19 +17,24 @@ public class SwedishView implements IView
             System.out.println("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
         }
         
-        public int GetInput()
-        {
-          try {
-            int c = System.in.read();
-            while (c == '\r' || c =='\n') {
-              c = System.in.read();
-            }
-            return c;
-          } catch (java.io.IOException e) {
-            System.out.println("" + e);
-            return 0;
-          }
-        }
+        public InputChoices GetInput() {
+    		try {
+    			String c = scan.next();
+
+    			if (c.equals("p")) {
+    				return InputChoices.Play;
+    			} else if (c.equals("s")) {
+    				return InputChoices.Stand;
+    			} else if (c.equals("h")) {
+    				return InputChoices.Hit;
+    			} else if (c.equals("q")) {
+    				return InputChoices.Quit;
+    			}
+    		} catch (Exception e) {
+    			System.out.println("Wrong Input!" + e);
+    		}
+    		return null;
+    	}
         
         public void DisplayCard(BlackJack.model.Card a_card)
         {
