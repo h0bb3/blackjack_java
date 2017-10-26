@@ -10,7 +10,7 @@ public class SoftHitStrategy implements IHitStrategy {
 		
 		int count = a_dealer.CalcScore();
 		
-		if(count < a_dealer.CalcScore()) {
+		if(count < g_scoreLimit) {
 			return true;
 		}
 		
