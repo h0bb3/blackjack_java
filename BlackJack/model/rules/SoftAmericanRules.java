@@ -1,20 +1,17 @@
 package BlackJack.model.rules;
 
-public class SoftAmericanRules implements SoftRulesFactory{
+public class SoftAmericanRules implements IRulesFactory{
 
-	@Override
-	public INewGameStrategy GetNewGameRule() {
+	public INewGameStrategy GetNewGameStrategy() {
 		return new AmericanNewGameStrategy();
 	}
 
-	@Override
 	public IHitStrategy GetHitStrategy() {
 		return new SoftHitStrategy();
 	}
 
-	@Override
 	public IWinStrategy GetWinStrategy() {
-		return new PlayerWinStrategy();
+		return new DealerWinStrategy();
 	}
 
 }

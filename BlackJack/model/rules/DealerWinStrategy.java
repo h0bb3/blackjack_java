@@ -1,6 +1,6 @@
 package BlackJack.model.rules;
 
-public class PlayerWinStrategy implements IWinStrategy {
+public class DealerWinStrategy implements IWinStrategy {
 
 	@Override
 	public boolean IsDealerWinner(int a_playerScore, int a_dealerScore, int g_maxScore) {
@@ -10,7 +10,7 @@ public class PlayerWinStrategy implements IWinStrategy {
 		else if(a_dealerScore > g_maxScore) {
 			return false;
 		}
-		return a_dealerScore > a_playerScore;
+		return a_dealerScore >= a_playerScore;
 	}
 
 }

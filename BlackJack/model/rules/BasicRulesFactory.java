@@ -8,13 +8,13 @@ public class BasicRulesFactory implements IRulesFactory {
 	}
 
 
-	public INewGameStrategy getNewGameStrategy() {
+	public INewGameStrategy GetNewGameStrategy() {
 		return new AmericanNewGameStrategy();
 	}
 
 
 	public IWinStrategy GetWinStrategy() {
-		return new PlayerWinStrategy();
+		return new PlayerWinStrategy();  
 	}
 
 }

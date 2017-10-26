@@ -4,7 +4,7 @@ public interface IRulesFactory {
 	
 	public IHitStrategy GetHitStrategy();
 	
-	public INewGameStrategy getNewGameStrategy();
+	public INewGameStrategy GetNewGameStrategy();
 	
 	public IWinStrategy GetWinStrategy();
 
