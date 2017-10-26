@@ -7,11 +7,13 @@ public class Dealer extends Player {
   private Deck m_deck;
   private INewGameStrategy m_newGameRule;
   private IHitStrategy m_hitRule;
+  private IWinStrategy m_winStrat;
 
-  public Dealer(RulesFactory a_rulesFactory) {
+  public Dealer(IRulesFactory a_rulesFactory) {
   
-    m_newGameRule = a_rulesFactory.GetNewGameRule();
-    m_hitRule = a_rulesFactory.GetHitRule();
+    m_newGameRule = a_rulesFactory.getNewGameStrategy();
+    m_hitRule = a_rulesFactory.GetHitStrategy();
+    m_winStrat = a_rulesFactory.GetWinStrategy();
     
     /*for(Card c : m_deck.GetCards()) {
       c.Show(true);

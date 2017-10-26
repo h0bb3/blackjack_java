@@ -9,3 +9,5 @@
 /SoftAmericanRules.class
 /IWinStrategy.class
 /PlayerWinStrategy.class
+/BasicRulesFactory.class
+/IRulesFactory.class
