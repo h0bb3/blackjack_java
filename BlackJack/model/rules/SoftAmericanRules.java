@@ -3,7 +3,7 @@ package BlackJack.model.rules;
 public class SoftAmericanRules implements IRulesFactory{
 
 	public INewGameStrategy GetNewGameStrategy() {
-		return new AmericanNewGameStrategy();
+		return new InternationalNewGameStrategy();
 	}
 
 	public IHitStrategy GetHitStrategy() {
