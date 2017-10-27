@@ -12,7 +12,7 @@ public class PlayGame extends IObserver{
 	public PlayGame(Game a_game, IView a_view) {
 		this.a_game = a_game;
 		this.a_view = a_view;
-		a_game.AddObservableValue(this);
+		a_game.AddObservableValue(this); // make the Game an Observer
 	}
 
 	public boolean Play() {
@@ -41,9 +41,9 @@ public class PlayGame extends IObserver{
 
 	}
 
-	public void update() {
+	public void update() { // Update method gets called whenever a new card is dealt
 		 try {
-	            Thread.sleep(1500);
+	            Thread.sleep(1000);
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }
