@@ -46,6 +46,5 @@ public class Deck {
           m_cards.remove(index);
           AddCard(c);
       }
-  }
-  
+  }  
 }
