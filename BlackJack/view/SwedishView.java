@@ -30,7 +30,7 @@ public class SwedishView implements IView
     				return InputChoices.Quit;
     			}
     		} catch (Exception e) {
-    			System.out.println("Wrong Input!" + e);
+    			System.out.println("Ogiltig val!" + e);
     		}
     		return null;
     	}

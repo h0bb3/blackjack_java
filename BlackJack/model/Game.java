@@ -59,5 +59,8 @@ public class Game {
     return m_player.CalcScore();
   }
     
-  
+  public void AddObservableValue(IObserver m_observer) {
+	  m_dealer.AddObserver(m_observer);
+	  m_player.AddObserver(m_observer);
+  }
 }

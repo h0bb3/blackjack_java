@@ -65,5 +65,6 @@ public class Dealer extends Player {
 	  Card c = m_deck.GetCard();
 	  c.Show(bool);
 	  a_player.DealCard(c); 
+	  NotifyObservers();
   }
 }
