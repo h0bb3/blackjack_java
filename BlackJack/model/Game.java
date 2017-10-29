@@ -1,13 +1,15 @@
 package BlackJack.model;
 
+import BlackJack.model.rules.*;
+
 public class Game {
 
   private Dealer m_dealer;
   private Player m_player;
 
-  public Game()
+  public Game(IRulesFactory a_rulesFactory)
   {
-    m_dealer = new Dealer(new BlackJack.model.rules.RulesFactory());
+    m_dealer = new Dealer(a_rulesFactory);
     m_player = new Player();
   }
     
@@ -34,8 +36,7 @@ public class Game {
   
   public boolean Stand()
   {
-    // TODO: Implement this according to Game_Stand.sequencediagram
-    return true;
+     return m_dealer.Stand(); //updated from sequence diagram
   }
   
   public Iterable<Card> GetDealerHand()
@@ -58,5 +59,8 @@ public class Game {
     return m_player.CalcScore();
   }
     
-  
+  public void AddObservableValue(IObserver m_observer) {
+	  m_dealer.AddObserver(m_observer);
+	  m_player.AddObserver(m_observer);
+  }
 }
