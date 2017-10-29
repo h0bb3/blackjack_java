@@ -1,6 +1,6 @@
 package BlackJack.model.rules;
 
-public class RulesFactory {
+public class AmericanRuleFactory implements AbstractRulesFactory {
 
   public IHitStrategy getHitRule() {
     return new SoftSeventeenHitStrategy();

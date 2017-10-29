@@ -1,12 +1,15 @@
 package BlackJack.model;
 
+import BlackJack.model.rules.AbstractRulesFactory;
+
 public class Game {
 
     private Dealer m_dealer;
     private Player m_player;
 
-    public Game() {
-        m_dealer = new Dealer(new BlackJack.model.rules.RulesFactory());
+    public Game(AbstractRulesFactory rulesFactory) {
+        m_dealer = new Dealer(rulesFactory);
+        //m_dealer = new Dealer(new BlackJack.model.rules.AmericanRuleFactory());
         m_player = new Player();
     }
 

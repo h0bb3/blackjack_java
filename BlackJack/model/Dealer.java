@@ -9,7 +9,7 @@ public class Dealer extends Player {
     private IHitStrategy m_hitRule;
     private IGameWinStrategy m_gameWinRule;
 
-    public Dealer(RulesFactory a_rulesFactory) {
+    public Dealer(AbstractRulesFactory a_rulesFactory) {
         m_newGameRule = a_rulesFactory.getNewGameRule();
         m_hitRule = a_rulesFactory.getHitRule();
         m_gameWinRule = a_rulesFactory.getGameWinRule();
