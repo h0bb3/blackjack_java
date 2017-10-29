@@ -4,4 +4,5 @@ import BlackJack.model.Player;
 
 public interface IHitStrategy {
     boolean doHit(Player a_dealer);
+    void accept(RulesVisitor visitor);
 }

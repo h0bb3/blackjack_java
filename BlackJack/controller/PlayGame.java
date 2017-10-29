@@ -17,6 +17,7 @@ public class PlayGame implements IObserver {
         this.a_game.registerObserver(this);
 
         a_view.displayWelcomeMessage();
+        a_view.displayRulesOfGame(a_game.getRules());
     }
 
     public boolean play(Game a_game, IView a_view) {

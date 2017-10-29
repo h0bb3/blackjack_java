@@ -1,5 +1,7 @@
 package BlackJack.view;
 
+import BlackJack.model.rules.AbstractRulesFactory;
+
 public class SimpleView implements IView {
 
     public void displayWelcomeMessage() {
@@ -67,6 +69,17 @@ public class SimpleView implements IView {
         } else {
             System.out.println("You Won!");
         }
+
+    }
+
+    @Override
+    public void displayRulesOfGame(AbstractRulesFactory rules) {
+        DutchAbstractRuleVisitor ruleVisitor = new DutchAbstractRuleVisitor();
+
+        System.out.println("\nGame rules:");
+        ruleVisitor.visit(rules.getHitRule());
+        ruleVisitor.visit(rules.getGameWinRule());
+        ruleVisitor.visit(rules.getNewGameRule());
 
     }
 }

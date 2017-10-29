@@ -6,11 +6,13 @@ public class Game {
 
     private Dealer m_dealer;
     private Player m_player;
+    private AbstractRulesFactory gameRules;
 
     public Game(AbstractRulesFactory rulesFactory) {
         m_dealer = new Dealer(rulesFactory);
         //m_dealer = new Dealer(new BlackJack.model.rules.AmericanRuleFactory());
         m_player = new Player();
+        this.gameRules = rulesFactory;
     }
 
 
@@ -54,6 +56,10 @@ public class Game {
     public void registerObserver(IObserver observer) {
         m_player.addObserver(observer);
         m_dealer.addObserver(observer);
+    }
+
+    public AbstractRulesFactory getRules() {
+        return gameRules;
     }
 
 }

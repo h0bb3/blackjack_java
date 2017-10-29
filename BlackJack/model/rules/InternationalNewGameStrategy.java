@@ -14,4 +14,9 @@ class InternationalNewGameStrategy implements INewGameStrategy {
 
     return true;
   }
+
+  @Override
+  public void accept(RulesVisitor visitor) {
+    visitor.visit(this);
+  }
 }

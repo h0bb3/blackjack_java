@@ -1,6 +1,7 @@
 package BlackJack.view;
 
 import BlackJack.model.Card;
+import BlackJack.model.rules.AbstractRulesFactory;
 
 public class DutchView implements IView {
     @Override
@@ -13,6 +14,21 @@ public class DutchView implements IView {
     @Override
     public void displayInstructions() {
         System.out.println("Typ 'h' voor hit, 's' voor stand en 'a' om dit spel af te breken.");
+    }
+
+
+    // I tried implementing the visitor pattern, but I'm not sure about how to handle the translations here.
+    // It seems a bit overkill to create all this new interfaces and classes just for getting the current
+    // rules.
+    @Override
+    public void displayRulesOfGame(AbstractRulesFactory rules) {
+        System.out.println("\nDe spelregels:");
+
+        DutchAbstractRuleVisitor ruleVisitor = new DutchAbstractRuleVisitor();
+        ruleVisitor.visit(rules.getNewGameRule());
+        ruleVisitor.visit(rules.getGameWinRule());
+        ruleVisitor.visit(rules.getHitRule());
+
     }
 
     @Override

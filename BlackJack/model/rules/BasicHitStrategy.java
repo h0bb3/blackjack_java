@@ -8,4 +8,9 @@ class BasicHitStrategy implements IHitStrategy {
     public boolean doHit(Player a_dealer) {
         return a_dealer.calcScore() < g_hitLimit;
     }
+
+    @Override
+    public void accept(RulesVisitor visitor) {
+        visitor.visit(this);
+    }
 }

@@ -13,4 +13,9 @@ public class SoftSeventeenHitStrategy implements IHitStrategy {
         }
         return score < g_hitLimit;
     }
+
+    @Override
+    public void accept(RulesVisitor visitor) {
+        visitor.visit(this);
+    }
 }

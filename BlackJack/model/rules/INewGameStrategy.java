@@ -6,4 +6,5 @@ import BlackJack.model.Player;
 
 public interface INewGameStrategy {
     boolean newGame(Deck a_deck, Dealer a_dealer, Player a_player);
+    void accept(RulesVisitor visitor);
 }

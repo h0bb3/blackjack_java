@@ -11,4 +11,9 @@ public class TiedGameDealerWinsStrategy implements IGameWinStrategy {
             return false;
         else return (scoreDealer >= scorePlayer);
     }
+
+    @Override
+    public void accept(RulesVisitor visitor) {
+        visitor.visit(this);
+    }
 }
