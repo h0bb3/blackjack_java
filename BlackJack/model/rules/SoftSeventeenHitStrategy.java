@@ -2,11 +2,16 @@ package BlackJack.model.rules;
 
 import BlackJack.model.Player;
 
-class BasicHitStrategy implements IHitStrategy {
+public class SoftSeventeenHitStrategy implements IHitStrategy {
     private final int g_hitLimit = 17;
 
+    @Override
     public boolean doHit(Player a_dealer) {
-        return a_dealer.calcScore() < g_hitLimit;
+        int score = a_dealer.calcScore();
+        if (score == g_hitLimit) {
+            return a_dealer.hasAce();
+        }
+        return score < g_hitLimit;
     }
 
     @Override

@@ -7,21 +7,16 @@ import BlackJack.model.Card;
 
 class InternationalNewGameStrategy implements INewGameStrategy {
 
-  public boolean NewGame(Deck a_deck, Dealer a_dealer, Player a_player) {
-    Card c;
-  
-    c = a_deck.GetCard();
-    c.Show(true);
-    a_player.DealCard(c);
-  
-    c = a_deck.GetCard();
-    c.Show(true);
-    a_dealer.DealCard(c);
-  
-    c = a_deck.GetCard();
-    c.Show(true);
-    a_player.DealCard(c);
-  
+  public boolean newGame(Deck a_deck, Dealer a_dealer, Player a_player) {
+    a_dealer.dealCard(a_player,a_deck.getCard(),true);
+    a_dealer.dealCard(a_dealer,a_deck.getCard(),true);
+    a_dealer.dealCard(a_player,a_deck.getCard(),true);
+
     return true;
+  }
+
+  @Override
+  public void accept(RulesVisitor visitor) {
+    visitor.visit(this);
   }
 }
