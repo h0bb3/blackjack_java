@@ -32,7 +32,7 @@ public class Player {
   
   public void ShowHand()
   {
-    for(Card c : m_hand)
+    for(Card c : GetHand())
     {
       c.Show(true);
     }
