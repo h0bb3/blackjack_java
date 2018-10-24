@@ -1,0 +1,13 @@
+# Emacs buffers
+\#
+*#
+.#*
+.*~
+
+
+# Eclipse
+.settings
+.classpath
+.project
+
+/Program.class
